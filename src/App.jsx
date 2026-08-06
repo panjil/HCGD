@@ -5,6 +5,7 @@ import InsightAside from './components/InsightAside';
 import Dashboard from './components/screens/Dashboard';
 import TurnOver from './components/screens/TurnOver';
 import Movement from './components/screens/Movement';
+import ManpowerMapping from './components/screens/ManpowerMapping';
 import {
   screens,
   insightSets,
@@ -29,6 +30,11 @@ import {
   moveRows,
   employeeHistory,
   timeline,
+  mappingSummary,
+  mappingCols,
+  buildMappingHeatRows,
+  mappingLegend,
+  mappingRows,
 } from './data/sampleData';
 
 export default function App() {
@@ -51,6 +57,7 @@ export default function App() {
       byLevel: buildByLevel(),
       dimReason: buildDimReason(),
       dimBdp: buildDimBdp(),
+      mappingHeatRows: buildMappingHeatRows(),
     }),
     []
   );
@@ -100,6 +107,15 @@ export default function App() {
                 moveRows={moveRows}
                 employeeHistory={employeeHistory}
                 timeline={timeline}
+              />
+            )}
+            {screen === 'mapping' && (
+              <ManpowerMapping
+                mappingSummary={mappingSummary}
+                mappingCols={mappingCols}
+                mappingHeatRows={data.mappingHeatRows}
+                mappingLegend={mappingLegend}
+                mappingRows={mappingRows}
               />
             )}
           </div>

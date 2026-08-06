@@ -21,6 +21,10 @@ export const screens = {
     title: 'Manpower Movement',
     sub: 'Pergerakan karyawan antar posisi, unit, dan lokasi',
   },
+  mapping: {
+    title: 'Manpower Mapping',
+    sub: 'Pemetaan formasi vs realisasi karyawan per unit dan jenjang jabatan',
+  },
 };
 
 export const toTabs = [
@@ -258,6 +262,47 @@ export const timeline = [
   { date: '02 Jan 2022', kind: 'Rekrutmen Baru', detail: 'Asisten Divisi (MT) · Estate B', color: G },
 ];
 
+// --- Manpower Mapping: formasi vs realisasi ----------------------------
+export const mappingSummary = [
+  { label: 'Total Formasi', note: 'kebutuhan posisi', value: '12.624', color: G },
+  { label: 'Realisasi', note: 'karyawan aktif', value: '12.480', color: G },
+  { label: 'Okupansi', note: 'realisasi / formasi', value: '98,9%', color: OK },
+  { label: 'Posisi Kosong', note: 'vacant, perlu rekrutmen', value: '187', color: RED },
+  { label: 'Kelebihan', note: 'realisasi > formasi', value: '43', color: GOLD },
+  { label: 'Unit Waspada', note: 'okupansi < 90%', value: '2', color: RED },
+];
+
+export const mappingCols = ['Harian', 'Staf', 'Asisten', 'As. Kepala', 'Manajer+'];
+const MAPPING_DATA = [
+  ['Estate A', [96, 94, 91, 88, 100]],
+  ['Estate B', [98, 95, 93, 90, 100]],
+  ['Estate C', [89, 85, 82, 80, 90]],
+  ['Estate D', [97, 96, 94, 92, 100]],
+  ['Estate F', [93, 90, 87, 84, 95]],
+  ['Mill B', [95, 92, 90, 88, 100]],
+];
+
+export function buildMappingHeatRows() {
+  return MAPPING_DATA.map(([name, cells]) => ({
+    name,
+    cells: cells.map((v) => {
+      const t = Math.min(1, Math.max(0, (100 - v) / 20));
+      return { v: v + '%', bg: heatColor(t), fg: t > 0.55 ? '#fff' : '#3C4A43' };
+    }),
+  }));
+}
+
+export const mappingLegend = [0, 0.17, 0.34, 0.5, 0.67, 0.84, 1].map((t) => heatColor(t));
+
+export const mappingRows = [
+  { unit: 'Estate A', formasi: 2180, realisasi: 2094, okupansi: '96,1%', gap: -86, gapLabel: '-86', gapColor: GOLD, status: 'Perlu Rekrutmen', statusColor: GOLD },
+  { unit: 'Estate B', formasi: 1450, realisasi: 1462, okupansi: '100,8%', gap: 12, gapLabel: '+12', gapColor: OK, status: 'Kelebihan Kapasitas', statusColor: OK },
+  { unit: 'Estate C', formasi: 2350, realisasi: 2091, okupansi: '89,0%', gap: -259, gapLabel: '-259', gapColor: RED, status: 'Kritis — Perlu Rekrutmen', statusColor: RED },
+  { unit: 'Estate D', formasi: 1980, realisasi: 1960, okupansi: '99,0%', gap: -20, gapLabel: '-20', gapColor: MUT, status: 'Sesuai Formasi', statusColor: MUT },
+  { unit: 'Estate F', formasi: 2100, realisasi: 1953, okupansi: '93,0%', gap: -147, gapLabel: '-147', gapColor: GOLD, status: 'Perlu Rekrutmen', statusColor: GOLD },
+  { unit: 'Mill B', formasi: 1340, realisasi: 1273, okupansi: '95,0%', gap: -67, gapLabel: '-67', gapColor: GOLD, status: 'Perlu Rekrutmen', statusColor: GOLD },
+];
+
 export const thresholds = [
   { name: 'TO Rate bulanan', value: '1,6% / 2,0%', color: GOLD, w: '80', note: '80% dari ambang — status waspada' },
   { name: 'Resign masa kerja <1 th', value: '22% / 15%', color: RED, w: '100', note: 'melewati ambang, perlu tindak lanjut' },
@@ -283,5 +328,11 @@ export const insightSets = {
     { mark: '●', markColor: G, lead: 'Jalur mutasi terpadat ', strong: 'Estate A → Estate D', strongColor: G, tail: ' sebanyak 38 karyawan.' },
     { mark: '!', markColor: GOLD, lead: '', strong: '12 kontrak', strongColor: '#B77A1E', tail: ' akan berakhir dalam 30 hari ke depan.' },
     { mark: '▼', markColor: OK, lead: 'Demosi hanya ', strong: '6 kasus', strongColor: OK, tail: ' — terendah dalam 8 bulan.' },
+  ],
+  mapping: [
+    { mark: '!', markColor: RED, lead: '', strong: 'Estate C', strongColor: RED, tail: ' kekurangan 259 posisi — okupansi terendah (89%).' },
+    { mark: '▲', markColor: GOLD, lead: 'Kelebihan kapasitas terdeteksi di ', strong: 'Estate B', strongColor: '#B77A1E', tail: ' sebanyak 12 posisi.' },
+    { mark: '●', markColor: G, lead: 'Okupansi perusahaan berada di ', strong: '98,9%', strongColor: OK, tail: ' dari total formasi 12.624 posisi.' },
+    { mark: 'i', markColor: MUT, lead: '', strong: '2 unit', strongColor: '#3C4A43', tail: ' berada di bawah ambang okupansi 90%.' },
   ],
 };

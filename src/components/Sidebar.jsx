@@ -33,6 +33,19 @@ const NAV_ITEMS = [
       </svg>
     ),
   },
+  {
+    id: 'mapping',
+    label: 'Manpower Mapping',
+    icon: (
+      <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7" style={{ position: 'relative' }}>
+        <rect x="3" y="3" width="7" height="7" rx="1.3" />
+        <rect x="14" y="3" width="7" height="7" rx="1.3" />
+        <rect x="3" y="14" width="7" height="7" rx="1.3" />
+        <rect x="14" y="14" width="7" height="7" rx="1.3" />
+        <path d="M10 6.5h4M6.5 10v4M17.5 10v4M10 17.5h4" />
+      </svg>
+    ),
+  },
 ];
 
 export default function Sidebar({ screen, onNavigate }) {
