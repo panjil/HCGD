@@ -1,4 +1,4 @@
-export default function Header({ title, subtitle }) {
+export default function Header({ title, subtitle, onExport }) {
   return (
     <header
       style={{
@@ -41,6 +41,7 @@ export default function Header({ title, subtitle }) {
         </select>
         <button
           className="hc-export-btn"
+          onClick={onExport}
           style={{
             display: 'flex',
             alignItems: 'center',

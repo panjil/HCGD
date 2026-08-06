@@ -30,6 +30,7 @@ import {
   employeeHistory,
   timeline,
 } from './data/sampleData';
+import { exportDashboard, exportResign, exportMovement } from './utils/exportExcel';
 
 export default function App() {
   const [screen, setScreen] = useState('dash');
@@ -58,12 +59,18 @@ export default function App() {
   const insights = insightSets[screen];
   const { title, sub } = screens[screen];
 
+  const handleExport = () => {
+    if (screen === 'dash') exportDashboard(data.kpis, moveSummary);
+    else if (screen === 'turnover') exportResign(resignRows);
+    else exportMovement(moveRows);
+  };
+
   return (
     <div style={{ display: 'flex', minHeight: '100vh', background: '#ffffff' }}>
       <Sidebar screen={screen} onNavigate={setScreen} />
 
       <main style={{ flex: 1, minWidth: 0, display: 'flex', flexDirection: 'column' }}>
-        <Header title={title} subtitle={sub} />
+        <Header title={title} subtitle={sub} onExport={handleExport} />
 
         <div
           className="hc-grid"

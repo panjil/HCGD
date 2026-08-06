@@ -224,6 +224,18 @@ export const resignRows = [
   { nik: '1907550', nama: 'Sri Wahyuni', jabatan: 'Krani Divisi', unit: 'Estate F', masa: '6 th 11 bl', umur: '38', edu: 'SMA/SMK', alasan: 'Keluarga', alasanColor: '#3C4A43' },
   { nik: '2306019', nama: 'Bagus Hermawan', jabatan: 'Asisten Divisi', unit: 'Estate C', masa: '0 th 6 bl', umur: '25', edu: 'S1', alasan: 'Gaji/Kompensasi', alasanColor: '#B77A1E' },
   { nik: '2011938', nama: 'Nurul Aini', jabatan: 'Krani Gudang', unit: 'Estate D', masa: '3 th 1 bl', umur: '33', edu: 'SMA/SMK', alasan: 'Kesehatan', alasanColor: '#3C4A43' },
+  { nik: '2258102', nama: 'Doni Iskandar', jabatan: 'Mandor Perawatan', unit: 'Estate A', masa: '2 th 3 bl', umur: '30', edu: 'SMA/SMK', alasan: 'Gaji/Kompensasi', alasanColor: '#B77A1E' },
+  { nik: '1985467', nama: 'Yayat Ruhiat', jabatan: 'Krani Timbang', unit: 'Mill A', masa: '7 th 4 bl', umur: '41', edu: 'SMP', alasan: 'Kesehatan', alasanColor: '#3C4A43' },
+  { nik: '2149023', nama: 'Lestari Handayani', jabatan: 'Staf HC', unit: 'Estate B', masa: '1 th 9 bl', umur: '28', edu: 'S1', alasan: 'Jenjang Karir', alasanColor: '#3C4A43' },
+  { nik: '2077651', nama: 'Wahyu Setiawan', jabatan: 'Operator Mill', unit: 'Mill B', masa: '0 th 11 bl', umur: '24', edu: 'SMA/SMK', alasan: 'Gaji/Kompensasi', alasanColor: '#B77A1E' },
+  { nik: '1962384', nama: 'Endang Suryani', jabatan: 'Krani Divisi', unit: 'Estate D', masa: '9 th 2 bl', umur: '44', edu: 'SMA/SMK', alasan: 'Lainnya', alasanColor: '#3C4A43' },
+  { nik: '2213590', nama: 'Rahmat Hidayat', jabatan: 'Mandor Panen', unit: 'Estate F', masa: '3 th 7 bl', umur: '34', edu: 'SMA/SMK', alasan: 'Jarak/Lokasi', alasanColor: '#3C4A43' },
+  { nik: '2296741', nama: 'Putri Anggraini', jabatan: 'Asisten Divisi', unit: 'Estate C', masa: '1 th 1 bl', umur: '26', edu: 'S1', alasan: 'Gaji/Kompensasi', alasanColor: '#B77A1E' },
+  { nik: '2038215', nama: 'Slamet Riyadi', jabatan: 'Krani Gudang', unit: 'Estate A', masa: '5 th 6 bl', umur: '36', edu: 'D3', alasan: 'Keluarga', alasanColor: '#3C4A43' },
+  { nik: '2164529', nama: 'Ayu Kartika', jabatan: 'Staf Administrasi', unit: 'Mill B', masa: '2 th 0 bl', umur: '29', edu: 'D3', alasan: 'Jenjang Karir', alasanColor: '#3C4A43' },
+  { nik: '2019843', nama: 'Hendra Gunawan', jabatan: 'Mandor Perawatan', unit: 'Estate D', masa: '0 th 4 bl', umur: '23', edu: 'SMA/SMK', alasan: 'Gaji/Kompensasi', alasanColor: '#B77A1E' },
+  { nik: '1974098', nama: 'Wati Suminar', jabatan: 'Krani Timbang', unit: 'Estate F', masa: '10 th 3 bl', umur: '46', edu: 'SMP', alasan: 'Kesehatan', alasanColor: '#3C4A43' },
+  { nik: '2287341', nama: 'Fikri Ramadhan', jabatan: 'Operator Mill', unit: 'Mill A', masa: '1 th 6 bl', umur: '27', edu: 'SMA/SMK', alasan: 'Jarak/Lokasi', alasanColor: '#3C4A43' },
 ];
 
 export const moveSummary = [
@@ -242,6 +254,18 @@ export const moveRows = [
   { nik: '2109983', nama: 'Yusuf Maulana', jabatan: 'Mandor → Mandor I', unit: 'Estate D → Estate D', tgl: '10 Jul 2026', jenis: 'Promosi', jenisColor: OK },
   { nik: '2002314', nama: 'Siti Rahayu', jabatan: 'Staf HC → Staf HC', unit: 'Mill B → Estate B', tgl: '15 Jul 2026', jenis: 'Mutasi', jenisColor: G },
   { nik: '2207781', nama: 'Ahmad Fauzi', jabatan: 'Krani Kontrak → Krani Tetap', unit: 'Estate A → Estate A', tgl: '21 Jul 2026', jenis: 'Pengangkatan', jenisColor: G },
+  { nik: '2255678', nama: 'Melati Purnama', jabatan: '— → Staf Administrasi', unit: '— → Estate C', tgl: '02 Jul 2026', jenis: 'Rekrutmen Baru', jenisColor: G },
+  { nik: '1990432', nama: 'Rudi Hartono', jabatan: 'Asisten Kepala → Manajer Unit', unit: 'Estate D → Estate D', tgl: '08 Jul 2026', jenis: 'Promosi', jenisColor: OK },
+  { nik: '2143209', nama: 'Wulan Sari', jabatan: 'Krani Gudang → Krani Timbang', unit: 'Mill A → Mill B', tgl: '11 Jul 2026', jenis: 'Mutasi', jenisColor: G },
+  { nik: '2087654', nama: 'Agus Salim', jabatan: 'Mandor I → Mandor Panen', unit: 'Estate F → Estate F', tgl: '14 Jul 2026', jenis: 'Demosi', jenisColor: MUT },
+  { nik: '2298761', nama: 'Indah Permatasari', jabatan: '— → Krani Divisi', unit: '— → Estate A', tgl: '16 Jul 2026', jenis: 'Rekrutmen Baru', jenisColor: G },
+  { nik: '1976543', nama: 'Teguh Prakoso', jabatan: 'Operator Mill → Operator Mill Senior', unit: 'Mill B → Mill B', tgl: '18 Jul 2026', jenis: 'Promosi', jenisColor: OK },
+  { nik: '2034521', nama: 'Ratna Dewi', jabatan: 'Staf Administrasi → Staf Administrasi', unit: 'Estate A → Estate B', tgl: '19 Jul 2026', jenis: 'Mutasi', jenisColor: G },
+  { nik: '2211098', nama: 'Bambang Kurniawan', jabatan: 'Krani Kontrak → Krani Tetap', unit: 'Estate C → Estate C', tgl: '22 Jul 2026', jenis: 'Pengangkatan', jenisColor: G },
+  { nik: '2065487', nama: 'Sari Wulandari', jabatan: 'Asisten Divisi → Asisten Divisi', unit: 'Estate D → Estate A', tgl: '24 Jul 2026', jenis: 'Mutasi', jenisColor: G },
+  { nik: '1958760', nama: 'Hadi Winarno', jabatan: 'Mandor → Karyawan Harian', unit: 'Estate F → Estate F', tgl: '25 Jul 2026', jenis: 'Demosi', jenisColor: MUT },
+  { nik: '2276543', nama: 'Citra Ningsih', jabatan: '— → Krani Timbang', unit: '— → Mill A', tgl: '27 Jul 2026', jenis: 'Rekrutmen Baru', jenisColor: G },
+  { nik: '2198765', nama: 'Eko Saputro', jabatan: 'Karyawan Harian → Karyawan Tetap', unit: 'Estate A → Estate A', tgl: '29 Jul 2026', jenis: 'Pengangkatan', jenisColor: G },
 ];
 
 export const employeeHistory = {
