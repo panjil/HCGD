@@ -58,6 +58,26 @@ export function exportResign(resignRows) {
   );
 }
 
+export function exportMapping(mappingUnits) {
+  const rows = mappingUnits.flatMap((u) =>
+    u.positions.map((p) => ({
+      'Kode Unit': u.code,
+      'Nama Unit': u.name,
+      Entitas: u.entity,
+      Luas: u.area,
+      'Unit Value': `${u.tier} - ${u.tierLabel}`,
+      Jabatan: p.jabatan,
+      NIK: p.nik,
+      Nama: p.nama,
+      Status: p.activity,
+      'Masa Jabatan': p.tenure,
+      'Status Kepegawaian': p.status,
+      Pendidikan: p.edu,
+    }))
+  );
+  downloadWorkbook([{ name: 'Manpower Mapping', rows }], 'HC-Manpower-Mapping.xlsx');
+}
+
 export function exportMovement(moveRows) {
   downloadWorkbook(
     [

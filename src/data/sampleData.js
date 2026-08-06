@@ -21,6 +21,10 @@ export const screens = {
     title: 'Manpower Movement',
     sub: 'Pergerakan karyawan antar posisi, unit, dan lokasi',
   },
+  mapping: {
+    title: 'Manpower Mapping',
+    sub: 'Peta struktur organisasi per unit & distribusi lokasi karyawan · Jul 2026',
+  },
 };
 
 export const toTabs = [
@@ -268,6 +272,94 @@ export const moveRows = [
   { nik: '2198765', nama: 'Eko Saputro', jabatan: 'Karyawan Harian → Karyawan Tetap', unit: 'Estate A → Estate A', tgl: '29 Jul 2026', jenis: 'Pengangkatan', jenisColor: G },
 ];
 
+// --- Manpower Mapping: struktur organisasi per unit ---------------------
+export const unitValueLegend = [
+  { tier: 'A', label: 'Heavy', color: RED },
+  { tier: 'B', label: 'Need Focus', color: GOLD },
+  { tier: 'C', label: 'Establish', color: OK },
+];
+
+function pos(jabatan, nik, nama, activity, tenure, status, statusTier, edu, ha) {
+  return { jabatan, ha, nik, nama, activity, tenure, status, statusTier, edu };
+}
+
+export const mappingUnits = [
+  {
+    code: 'BAGE', area: '2.752 Ha', name: 'Beringin Agung Estate', entity: 'PT. KMB', tier: 'C', tierLabel: 'Establish', estateModel: false,
+    positions: [
+      pos('Manager', '000873', 'Herman Wijaya', 'DEF', '5 Thn 11 Bln', 'PAMA-7', 'gold', 'SMA', null),
+      pos('Askep', '005070', 'Sutrisno Aji', 'ACT', '0 Thn 5 Bln', 'NON-BDP', 'green', 'S1', null),
+      pos('Kasie', '005477', 'Firman Nugraha', 'DEF', '1 Thn 2 Bln', 'BDPK-35', 'gold', 'D3', null),
+      pos('Ast. Div. 1', '005567', 'Yandi Kurniawan', 'DEF', '0 Thn 6 Bln', 'NON-BDP', 'green', 'S1', '644 Ha'),
+      pos('Ast. Div. 2', '003716', 'Robby Setiadi', 'DEF', '1 Thn 10 Bln', 'PAMA-26', 'gold', 'S1', '442 Ha'),
+      pos('Ast. Div. 3', '004459', 'Dedi Kurnia', 'DEF', '4 Thn 3 Bln', 'NON-BDP', 'green', 'SMA', '331 Ha'),
+      pos('Ast. Div. 4', '003155', 'Anton Prabowo', 'DEF', '6 Thn 7 Bln', 'PAMA-23', 'gold', 'S1', '719 Ha'),
+    ],
+  },
+  {
+    code: 'BDME', area: '2.570 Ha', name: 'Bukit Daman Estate', entity: 'PT. KMB', tier: 'C', tierLabel: 'Establish', estateModel: false,
+    positions: [
+      pos('Manager', '005203', 'Marbun Situmorang', 'DEF', '1 Thn 7 Bln', 'NON-BDP', 'green', 'S1', null),
+      pos('Askep', '001293', 'Armaya Ginting', 'DEF', '2 Thn 3 Bln', 'PAMA-10', 'gold', 'S1', null),
+      pos('Kasie', '002923', 'Puji Santoso', 'DEF', '1 Thn 3 Bln', 'PAMK-20', 'gold', 'S1', null),
+      pos('Ast. Div. 1', '005522', 'Indra Wirawan', 'DEF', '0 Thn 5 Bln', 'BDPA-41', 'green', 'S1', '617 Ha'),
+      pos('Ast. Div. 2', '003587', 'Yudi Abidin', 'DEF', '4 Thn 5 Bln', 'PAMA-25', 'gold', 'S1', '554 Ha'),
+      pos('Ast. Div. 3', '005384', 'Bagus Nursidik', 'DEF', '0 Thn 3 Bln', 'NON-BDP', 'green', 'S1', '681 Ha'),
+      pos('Ast. Div. 4', '002462', 'Rikki Andriyanto', 'DEF', '0 Thn 3 Bln', 'PAMA-17', 'gold', 'S1', '717 Ha'),
+    ],
+  },
+  {
+    code: 'BHJE', area: '2.003 Ha', name: 'Batang Hijau Estate', entity: 'PT. KMB', tier: 'C', tierLabel: 'Establish', estateModel: false,
+    positions: [
+      pos('Manager', '003695', 'Eka Wahyudianto', 'ACT', '2 Thn 0 Bln', 'PAMA-26', 'gold', 'S1', null),
+      pos('Kasie', '004092', 'Muhammad Imron', 'DEF', '1 Thn 3 Bln', 'NON-BDP', 'green', 'S1', null),
+      pos('Ast. Div. 1', '004657', 'Fachri Siregar', 'DEF', '0 Thn 10 Bln', 'NON-BDP', 'green', 'D3', '1.000 Ha'),
+      pos('Ast. Div. 2', '005033', 'Dery Muhendri', 'DEF', '0 Thn 7 Bln', 'BDPA-35', 'green', 'D4', '581 Ha'),
+      pos('Ast. Div. 3', '005645', 'Arief Soerjakentjana', 'DEF', '0 Thn 0 Bln', 'NON-BDP', 'green', 'S1', '422 Ha'),
+    ],
+  },
+  {
+    code: 'GMKE', area: '2.548 Ha', name: 'Gunung Makmur Estate', entity: 'PT. KMB', tier: 'A', tierLabel: 'Heavy', estateModel: true,
+    positions: [
+      pos('Manager', '004125', 'Ahmad Rangkuti', 'ACT', '1 Thn 3 Bln', 'BDPA-30', 'green', 'S1', null),
+      pos('Askep', '004444', 'William Halimas', 'DEF', '0 Thn 5 Bln', 'NON-BDP', 'green', 'S1', null),
+      pos('Kasie', '003648', 'Naufal Ridlo', 'DEF', '0 Thn 8 Bln', 'PAMK-23', 'gold', 'S1', null),
+      pos('Ast. Div. 1', '004890', 'Yoga Pranata', 'DEF', '1 Thn 1 Bln', 'PAMA-14', 'gold', 'SMA', '588 Ha'),
+      pos('Ast. Div. 2', '004201', 'Deni Firmansyah', 'DEF', '0 Thn 9 Bln', 'NON-BDP', 'green', 'S1', '612 Ha'),
+      pos('Ast. Div. 3', '003977', 'Reza Alamsyah', 'DEF', '2 Thn 4 Bln', 'BDPK-19', 'gold', 'D3', '540 Ha'),
+    ],
+  },
+  {
+    code: 'SMNE', area: '2.179 Ha', name: 'Sungai Mentaya Estate', entity: 'PT. KMB', tier: 'C', tierLabel: 'Establish', estateModel: false,
+    positions: [
+      pos('Manager', '002326', 'Tri Winarno', 'DEF', '0 Thn 10 Bln', 'PAMA-16', 'gold', 'S1', null),
+      pos('Askep', '003840', 'Bagus Irawan', 'ACT', '0 Thn 0 Bln', 'PAMA-28', 'gold', 'S1', null),
+      pos('Kasie', '002155', 'Aditya Prasetyo', 'DEF', '1 Thn 8 Bln', 'PAMK-15', 'gold', 'S1', null),
+      pos('Ast. Div. 1', '004077', 'Ilham Fauzan', 'DEF', '0 Thn 4 Bln', 'NON-BDP', 'green', 'SMA', '505 Ha'),
+      pos('Ast. Div. 2', '003912', 'Fadli Ramadhan', 'DEF', '3 Thn 2 Bln', 'BDPA-27', 'green', 'D3', '498 Ha'),
+    ],
+  },
+  {
+    code: 'SMRE', area: '1.700 Ha', name: 'Sungai Meraya Estate', entity: 'PT. KMB', tier: 'C', tierLabel: 'Establish', estateModel: false,
+    positions: [
+      pos('Manager', '003466', 'Irham Fadli Nasution', 'DEF', '2 Thn 10 Bln', 'PAMA-24', 'gold', 'S1', null),
+      pos('Kasie', '005219', 'Gusti Ngurah Sute', 'DEF', '1 Thn 3 Bln', 'BDPK-33', 'gold', 'S1', null),
+      pos('Ast. Div. 1', '005280', 'Muhammad Yusuf', 'DEF', '0 Thn 6 Bln', 'BDPA-39', 'green', 'D3', '470 Ha'),
+      pos('Ast. Div. 2', '004633', 'Hilman Taufik', 'DEF', '1 Thn 0 Bln', 'NON-BDP', 'green', 'SMA', '380 Ha'),
+    ],
+  },
+  {
+    code: 'TJPE', area: '1.980 Ha', name: 'Tanjung Pinang Estate', entity: 'PT. KMB', tier: 'B', tierLabel: 'Need Focus', estateModel: false,
+    positions: [
+      pos('Manager', '002841', 'Bayu Santoso', 'DEF', '3 Thn 2 Bln', 'PAMA-19', 'gold', 'S1', null),
+      pos('Askep', '003390', 'Krisna Wardhana', 'DEF', '0 Thn 9 Bln', 'BDPA-22', 'green', 'S1', null),
+      pos('Kasie', '004512', 'Untung Prasetya', 'ACT', '0 Thn 2 Bln', 'NON-BDP', 'green', 'SMA', null),
+      pos('Ast. Div. 1', '004980', 'Wisnu Aditama', 'DEF', '1 Thn 5 Bln', 'PAMA-31', 'gold', 'S1', '512 Ha'),
+      pos('Ast. Div. 2', '003655', 'Galih Permana', 'DEF', '0 Thn 3 Bln', 'NON-BDP', 'green', 'SMA', '467 Ha'),
+    ],
+  },
+];
+
 export const employeeHistory = {
   nik: '2210447',
   nama: 'Bayu Nugroho',
@@ -307,5 +399,11 @@ export const insightSets = {
     { mark: '●', markColor: G, lead: 'Jalur mutasi terpadat ', strong: 'Estate A → Estate D', strongColor: G, tail: ' sebanyak 38 karyawan.' },
     { mark: '!', markColor: GOLD, lead: '', strong: '12 kontrak', strongColor: '#B77A1E', tail: ' akan berakhir dalam 30 hari ke depan.' },
     { mark: '▼', markColor: OK, lead: 'Demosi hanya ', strong: '6 kasus', strongColor: OK, tail: ' — terendah dalam 8 bulan.' },
+  ],
+  mapping: [
+    { mark: '!', markColor: RED, lead: '', strong: 'GMKE', strongColor: RED, tail: ' berstatus Heavy — beban unit di atas kapasitas model estate.' },
+    { mark: '●', markColor: GOLD, lead: '', strong: 'TJPE', strongColor: GOLD, tail: ' masuk kategori Need Focus, perlu peninjauan struktur jabatan.' },
+    { mark: 'i', markColor: MUT, lead: '', strong: '3 posisi Kasie', strongColor: '#3C4A43', tail: ' masih berstatus Acting (ACT), belum definitif.' },
+    { mark: '●', markColor: G, lead: '', strong: '5 dari 7 unit', strongColor: G, tail: ' berstatus Establish dengan struktur jabatan terisi penuh.' },
   ],
 };

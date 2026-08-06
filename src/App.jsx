@@ -5,6 +5,7 @@ import InsightAside from './components/InsightAside';
 import Dashboard from './components/screens/Dashboard';
 import TurnOver from './components/screens/TurnOver';
 import Movement from './components/screens/Movement';
+import ManpowerMapping from './components/screens/ManpowerMapping';
 import {
   screens,
   insightSets,
@@ -29,8 +30,10 @@ import {
   moveRows,
   employeeHistory,
   timeline,
+  mappingUnits,
+  unitValueLegend,
 } from './data/sampleData';
-import { exportDashboard, exportResign, exportMovement } from './utils/exportExcel';
+import { exportDashboard, exportResign, exportMovement, exportMapping } from './utils/exportExcel';
 
 export default function App() {
   const [screen, setScreen] = useState('dash');
@@ -62,7 +65,8 @@ export default function App() {
   const handleExport = () => {
     if (screen === 'dash') exportDashboard(data.kpis, moveSummary);
     else if (screen === 'turnover') exportResign(resignRows);
-    else exportMovement(moveRows);
+    else if (screen === 'movement') exportMovement(moveRows);
+    else exportMapping(mappingUnits);
   };
 
   return (
@@ -109,6 +113,7 @@ export default function App() {
                 timeline={timeline}
               />
             )}
+            {screen === 'mapping' && <ManpowerMapping units={mappingUnits} legend={unitValueLegend} />}
           </div>
 
           <InsightAside insights={insights} thresholds={thresholds} />
