@@ -1,0 +1,29 @@
+:root {
+  --color-primary: #0B6E4F;
+  --color-primary-hover: #095A41;
+  --color-primary-active: #07472F;
+  --color-primary-dark: #06422F;
+  --color-accent: #E8A33D;
+  --color-accent-deep: #B77A1E;
+  --color-accent-tint: #FDF8EF;
+  --color-accent-tint-strong: #A17F45;
+  --color-accent-label: #8A5B12;
+  --color-success: #1E8449;
+  --color-danger: #C0392B;
+  --color-muted-accent: #8FA79A;
+
+  --color-text: #1B2420;
+  --color-text-soft: #3C4A43;
+  --color-text-muted: #6B7770;
+  --color-text-faint: #95A099;
+
+  --color-border: #E7EBE9;
+  --color-border-hover: #CBD6D0;
+  --color-border-strong: #DDE3E0;
+  --color-row-border: #F0F3F1;
+  --color-row-hover: #F7F9F8;
+  --color-bar-muted: #C3D0C9;
+  --color-donut-alt: #7FA394;
+
+  --font-sans: 'Plus Jakarta Sans', ui-sans-serif, system-ui, sans-serif;
+}
